@@ -14,7 +14,7 @@ trait Uuid
     protected static function bootUuid()
     {
         static::creating(static function ($model) {
-            $model->{$model->getUuidName()} = (string) ($model->wantsOrderedUuid() ? Str::orderedUuid() : Str::uuid());
+            $model->{$model->getUuidKey()} = (string) ($model->wantsOrderedUuid() ? Str::orderedUuid() : Str::uuid());
         });
     }
 
@@ -25,7 +25,7 @@ trait Uuid
      */
     public function scopeFindUuid($query, $uuid)
     {
-        return $query->where($this->getUuidName(), $uuid)->first();
+        return $query->where($this->getUuidKey(), $uuid)->first();
     }
 
     /**
@@ -35,7 +35,7 @@ trait Uuid
      */
     public function getCasts()
     {
-        $this->casts['uuid'] = 'uuid';
+        $this->casts[$this->getUuidKey()] = 'uuid';
 
         return $this->casts;
     }
@@ -47,7 +47,7 @@ trait Uuid
      */
     protected function wantsOrderedUuid()
     {
-        return $this->uuidOrdered ?? false;
+        return $this->uuidOrdered ?? true;
     }
 
     /**
@@ -55,8 +55,8 @@ trait Uuid
      *
      * @return string
      */
-    protected function getUuidName()
+    protected function getUuidKey()
     {
-        return $this->uuidName ?? 'uuid';
+        return $this->uuidKey ?? 'uuid';
     }
 }
