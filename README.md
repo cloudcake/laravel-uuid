@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/1300442/62399645-cc51dd00-b57c-11e9-980f-183f92e6828f.png">
+  <img src="https://user-images.githubusercontent.com/1300442/62399645-cc51dd00-b57c-11e9-980f-183f92e6828f.png" width="500">
   <h4 align="center">Incredibly simple UUID's for Laravel's Eloquent models.</h4>
 </p>
 
