@@ -1,6 +1,6 @@
 <?php
 
-namespace Larashim\Stopwatch\Providers;
+namespace Larashim\Uuid\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
