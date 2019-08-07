@@ -9,6 +9,7 @@ Install via composer using `composer require larashim/uuid`
 ## Usage
 
 ### Primary Key UUID's
+If you want to use UUID's as your model's primary key, this is for you.
 
 - Add the `Larashim\Uuid\Traits\UuidPrimaryKey` trait to the eloquent model
 - Add the primary key column name if you're not using the default of `id` (Optional)
@@ -23,8 +24,10 @@ class User extends Authenticatable
     protected $primaryKey = 'id';
 }
 ```
+Now you'll be able to call `User::find('<uuid-here');`.
 
 ### Additional Field UUID's
+In some situations you may want to retain your regular integer based primary key, but add an additional UUID column to your models, for this case, use the `Uuid` trait.
 
 - Add the `Larashim\Uuid\Traits\Uuid` trait to the eloquent model
 - Add the name of the UUID column
@@ -38,6 +41,7 @@ class User extends Authenticatable
     protected $uuidKeyName = 'uuid';
 }
 ```
+And query it as you would any other attribute, `User::where('uuid', '<uuid-here>')->first()`.
 
 ## Additional Options
 Add any/all of the following to your model(s) to fine-tune the package to your needs.
