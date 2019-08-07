@@ -24,7 +24,7 @@ class User extends Authenticatable
     protected $primaryKey = 'id';
 }
 ```
-Now you'll be able to call `User::find('<uuid-here');`.
+Now you'll be able to call `User::find('<uuid-here>');`.
 
 ### Additional Field UUID's
 In some situations you may want to retain your regular integer based primary key, but add an additional UUID column to your models, for this case, use the `Uuid` trait.
