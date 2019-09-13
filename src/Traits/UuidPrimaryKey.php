@@ -4,7 +4,7 @@ namespace Larashim\Uuid\Traits;
 
 use Illuminate\Support\Str;
 
-trait HasUuidPrimaryKey
+trait UuidPrimaryKey
 {
     /**
      * Boot trait.
