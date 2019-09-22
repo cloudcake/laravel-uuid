@@ -20,7 +20,7 @@ use Larashim\Uuid\Traits\UuidPrimaryKey;
 class User extends Authenticatable
 {
     use UuidPrimaryKey;
-    
+
     protected $primaryKey = 'id';
 }
 ```
@@ -37,8 +37,8 @@ use Larashim\Uuid\Traits\Uuid;
 class User extends Authenticatable
 {
     use Uuid;
-    
-    protected $uuidKeyName = 'uuid';
+
+    protected static $uuidKeyName = 'uuid';
 }
 ```
 And query it as you would any other attribute, `User::where('uuid', '<uuid-here>')->first()`.
@@ -60,19 +60,19 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use Uuid;
-    
+
     /**
      * The name of the UUID column in the database.
      *
      * @var string
      */
-    protected $uuidKey = 'universally_unique_id';
-    
+    protected static $uuidKey = 'universally_unique_id';
+
     /**
      * Whether or not the UUID should use timestamp ordering.
      *
      * @var bool
      */
-    protected $uuidOrdered = true;
+    protected static $uuidOrdered = true;
 }
 ```
