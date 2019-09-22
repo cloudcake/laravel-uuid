@@ -6,6 +6,8 @@ use Illuminate\Support\Str;
 
 trait UuidPrimaryKey
 {
+    protected static $uuidOrdered = true;
+
     /**
      * Boot trait.
      *
@@ -16,7 +18,7 @@ trait UuidPrimaryKey
         static::creating(static function ($model) {
             $model->keyType = 'uuid';
             $model->incrementing = false;
-            $model->{$model->getKeyName()} = (string) ($model->uuidOrdered ? Str::orderedUuid() : Str::uuid());
+            $model->{$model->getKeyName()} = (string) (static::$uuidOrdered ? Str::orderedUuid() : Str::uuid());
         });
     }
 
