@@ -3,9 +3,13 @@
 namespace Larashim\Uuid\Traits;
 
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Builder;
 
 trait Uuid
 {
+    protected static $uuidOrdered = true;
+    protected static $uuidKey = 'uuid';
+
     /**
      * Boot trait.
      *
@@ -14,7 +18,7 @@ trait Uuid
     protected static function bootUuid()
     {
         static::creating(static function ($model) {
-            $model->{$model->getUuidKey()} = (string) ($model->wantsOrderedUuid() ? Str::orderedUuid() : Str::uuid());
+            $model->{static::getUuidKey()} = (string) ($model->wantsOrderedUuid() ? Str::orderedUuid() : Str::uuid());
         });
     }
 
@@ -23,9 +27,9 @@ trait Uuid
      *
      * @return self;
      */
-    public function scopeFindUuid($query, $uuid)
+    public static function findUuid($uuid)
     {
-        return $query->where($this->getUuidKey(), $uuid)->first();
+        return self::where(static::getUuidKey(), $uuid)->first();
     }
 
     /**
@@ -47,7 +51,7 @@ trait Uuid
      */
     protected function wantsOrderedUuid()
     {
-        return $this->uuidOrdered ?? true;
+        return self::$uuidOrdered ?? true;
     }
 
     /**
@@ -55,8 +59,8 @@ trait Uuid
      *
      * @return string
      */
-    protected function getUuidKey()
+    protected static function getUuidKey()
     {
-        return $this->uuidKey ?? 'uuid';
+        return self::$uuidKey ?? 'uuid';
     }
 }
