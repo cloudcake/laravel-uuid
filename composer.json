@@ -10,12 +10,11 @@
   }],
   "require": {
     "php": ">=7.0.0",
-    "moontoast/math": "^1.1",
     "ramsey/uuid": "^3.0"
   },
   "autoload": {
     "psr-4": {
-      "\Uuid\\": "src/"
+      "Uuid\\": "src/"
     }
   }
 }
