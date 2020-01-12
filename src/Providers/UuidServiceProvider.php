@@ -1,6 +1,6 @@
 <?php
 
-namespace Larashim\Uuid\Providers;
+namespace Uuid\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

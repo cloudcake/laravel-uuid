@@ -1,6 +1,6 @@
 <?php
 
-namespace Larashim\Uuid\Traits;
+namespace Uuid\Traits;
 
 use Illuminate\Support\Str;
 

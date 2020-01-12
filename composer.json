@@ -1,5 +1,5 @@
 {
-  "name": "larashim/uuid",
+  "name": "cloudcake/laravel-uuid",
   "description": "UUID's for Laravel's Eloquent models.",
   "keywords": ["laravel", "uuid"],
   "type": "library",
@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Larashim\\Uuid\\": "src/"
+      "\Uuid\\": "src/"
     }
   }
 }
