@@ -1,5 +1,5 @@
 # Heads up!
-Since Laravel 9.x, UUID support is baked right into Laravel. See [Illuminate/Database/Eloquent/Concerns/HasUuids](https://laravel.com/api/master/Illuminate/Database/Eloquent/Concerns/HasUuids.html). This package is now redundant.
+Since Laravel 9.x, UUID support for Eloquent is baked right into Laravel. See [Illuminate/Database/Eloquent/Concerns/HasUuids](https://laravel.com/api/master/Illuminate/Database/Eloquent/Concerns/HasUuids.html). This package is now redundant.
 
 ## Installation
 Install via composer using `composer require cloudcake/laravel-uuid`
